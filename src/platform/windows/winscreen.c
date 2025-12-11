@@ -203,6 +203,7 @@ ReleaseMutex(mtx);
 
 void wn_screen_redraw(struct screen *scr)
 {
+	SetWindowPos(scr->overlay, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
 	PostThreadMessage(ui_thread_id, WM_USER, 0, (LPARAM)scr);
 }
 
